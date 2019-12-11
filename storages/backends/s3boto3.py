@@ -506,7 +506,6 @@ class S3Boto3Storage(Storage):
             put_parameters['StorageClass'] = 'REDUCED_REDUNDANCY'
         if self.default_acl:
             put_parameters['ACL'] = self.default_acl
-        content.seek(0, os.SEEK_SET)
         obj.upload_fileobj(content, ExtraArgs=put_parameters)
 
     def delete(self, name):
